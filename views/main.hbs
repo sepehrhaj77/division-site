@@ -1,0 +1,66 @@
+
+
+<div id = "main">
+    <h1>Learn Division!</h1>
+    <a href="http://sepdog77.pythonanywhere.com/"  target="_blank">Multiplication</a>
+    
+    <div class = "boxes">
+        <div class = "numbers">
+            {{{product}}}
+        </div>
+    </div>
+
+    <p id = "signs">%</p>
+
+    <div class = "boxes">
+        <div class="numbers">
+            {{{factor1}}}
+        </div>  
+    </div>
+
+    <p id = "signs">=</p>
+
+    <div class = "boxes">
+        <div id = "answer">
+            <form id="userForm" onsubmit="return false">
+                <input id="userInput" type="number">
+                <input type = "submit" value="Submit" onclick="checkAnswer()">
+            </form>
+        </div>
+    </div>
+
+    <div id="ansCorrect">
+        Correct!
+    </div>
+
+    <div id="ansWrong">
+        Wrong!
+    </div>
+
+    <div id="showAns">
+        Answer = {{{factor2}}}
+    </div>
+
+    <button id="nextButton" onClick="window.location.reload();">Next</button>
+</div>
+
+<script>
+    var count = 0;
+    function checkAnswer(){
+        var ans = document.getElementById("userInput").value;
+        count += 1;
+        if(ans == {{{factor2}}}) {
+            document.getElementById("ansCorrect").style.display = "inline-block";
+            document.getElementById("ansWrong").style.display = "none";
+        }
+        else{
+            document.getElementById("ansWrong").style.display = "inline-block";
+            document.getElementById("ansCorrect").style.display = "none";
+        }
+        if(count == 3){
+            document.getElementById("showAns").style.display = "block";
+        }
+        console.log(count);
+        return;
+    }
+</script>
